@@ -14,9 +14,8 @@ if [ ! -d ".repo" ]; then
     exit 1
 fi
 
-# GitHub repository details
-REPO_URL="https://github.com/zen0s-aospforge/local_manifests"
-BRANCH="main"
+# GitHub raw file URL
+RAW_URL="https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/local_manifests/alioth.xml"
 
 # Remove existing local_manifests if it exists
 if [ -d ".repo/local_manifests" ]; then
@@ -24,27 +23,30 @@ if [ -d ".repo/local_manifests" ]; then
     rm -rf ".repo/local_manifests"
 fi
 
-# Create temporary directory for cloning
-TEMP_DIR=$(mktemp -d)
-echo "Downloading local_manifests from GitHub..."
+# Create local_manifests directory
+echo "Creating .repo/local_manifests directory..."
+mkdir -p ".repo/local_manifests"
 
-# Clone the repository
-git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "$TEMP_DIR" 2>/dev/null
-
-# Copy local_manifests to .repo directory
-if [ -d "$TEMP_DIR/local_manifests" ]; then
-    echo "Copying local_manifests to .repo directory..."
-    cp -r "$TEMP_DIR/local_manifests" ".repo/"
-    
-    # Set proper permissions
-    chmod -R 644 ".repo/local_manifests"/*.xml 2>/dev/null || true
-    
-    echo "Successfully set up local_manifests in .repo directory!"
-    echo "You can now run 'repo sync' to fetch the additional repositories."
+# Download the manifest file
+echo "Downloading alioth.xml..."
+if command -v curl >/dev/null 2>&1; then
+    curl -s "$RAW_URL" -o ".repo/local_manifests/alioth.xml"
+elif command -v wget >/dev/null 2>&1; then
+    wget -q "$RAW_URL" -O ".repo/local_manifests/alioth.xml"
 else
-    echo "Error: local_manifests directory not found in the downloaded repository!"
+    echo "Error: Neither curl nor wget is available!"
     exit 1
 fi
 
-# Clean up temporary directory
-rm -rf "$TEMP_DIR"
+# Check if download was successful
+if [ ! -f ".repo/local_manifests/alioth.xml" ] || [ ! -s ".repo/local_manifests/alioth.xml" ]; then
+    echo "Error: Failed to download the manifest file!"
+    exit 1
+fi
+
+# Set proper permissions
+chmod 644 ".repo/local_manifests/alioth.xml"
+
+echo "Successfully set up local_manifests in .repo directory!"
+echo "Downloaded alioth.xml manifest file."
+echo "You can now run 'repo sync' to fetch the additional repositories."
