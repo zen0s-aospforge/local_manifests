@@ -11,6 +11,10 @@
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
 
+  <!-- WFD (WiFi Display) -->
+  <project name="PocoF3Releases/vendor_qcom_wfd" path="vendor/qcom/wfd" remote="github" revision="bka" />
+  <project name="PocoF3Releases/device_qcom_wfd" path="device/qcom/wfd" remote="github" revision="bka" />
+
   <!-- Alioth device and vendor -->
   <project name="PocoF3Releases/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="aosp-16" />
   <project name="zen0s-aospforge/device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="infi" />
