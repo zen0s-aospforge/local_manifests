@@ -10,6 +10,7 @@
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
+  <project name="swiitch-OFF-Lab/hardware_dolby" path="hardware/dolby" remote="github" revision="sony-1.4" />
 
   <!-- WFD (WiFi Display) -->
   <project name="PocoF3Releases/vendor_qcom_wfd" path="vendor/qcom/wfd" remote="github" revision="bka" />
@@ -20,7 +21,7 @@
   <project name="zen0s-aospforge/device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="infi" />
 
   <!-- SM8250 common -->
-  <project name="zen0s-aospforge/device_xiaomi_sm8250-common" path="device/xiaomi/sm8250-common" remote="github" revision="16" />
-  <project name="zen0s-aospforge/vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" />
+  <project name="zen0s-aospforge/device_xiaomi_sm8250-common" path="device/xiaomi/sm8250-common" remote="github" revision="c2" />
+  <project name="zen0s-aospforge/vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="c2" />
 
 </manifest>
