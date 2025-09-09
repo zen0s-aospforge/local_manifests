@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
+  <remote name="github" fetch="https://github.com/" />
+  <remote name="gitlab" fetch="https://gitlab.com/" />
+
   <!-- Camera repos -->
   <project name="johnmart19/vendor_xiaomi_camera" path="vendor/xiaomi/camera" remote="gitlab" revision="aosp-16" />
   <project name="PocoF3Releases/device_xiaomi_camera" path="device/xiaomi/camera" remote="github" revision="aosp-16" />
