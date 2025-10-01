@@ -52,23 +52,23 @@ echo "Downloaded alioth.xml manifest file."
 
 # Apply the Binder patch
 echo "Applying Binder threadpool patch..."
-PATCH_FILE="$(dirname "$0")/0001-Don-t-crash-Binder-threadpool-cannot-be-shrunk-after.patch"
 
-if [ ! -f "$PATCH_FILE" ]; then
-    echo "Warning: Patch file not found at $PATCH_FILE"
-    echo "Skipping patch application."
-elif [ ! -d "system/libhwbinder" ]; then
+if [ ! -d "system/libhwbinder" ]; then
     echo "Warning: system/libhwbinder directory not found."
     echo "The patch will need to be applied manually after syncing the source."
-    echo "Patch location: $PATCH_FILE"
 else
     cd system/libhwbinder
-    if patch -p1 --dry-run --silent < "$PATCH_FILE" 2>/dev/null; then
-        patch -p1 < "$PATCH_FILE"
-        echo "Successfully applied Binder threadpool patch!"
+    echo "Fetching commit from custom-crdroid repository..."
+    if git fetch https://github.com/custom-crdroid/system_libhwbinder.git d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
+        echo "Applying commit d9d46e78cec0d09498fd5890eed9f7195baed0fd..."
+        if git cherry-pick d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
+            echo "Successfully applied Binder threadpool patch!"
+        else
+            echo "Warning: Failed to cherry-pick commit. It may already be applied or conflict with existing changes."
+            git cherry-pick --abort 2>/dev/null
+        fi
     else
-        echo "Warning: Patch may already be applied or cannot be applied cleanly."
-        echo "You may need to apply it manually: $PATCH_FILE"
+        echo "Warning: Failed to fetch commit from repository."
     fi
     cd - > /dev/null
 fi
