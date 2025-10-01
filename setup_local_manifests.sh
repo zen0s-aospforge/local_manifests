@@ -49,4 +49,29 @@ chmod 644 ".repo/local_manifests/alioth.xml"
 
 echo "Successfully set up local_manifests in .repo directory!"
 echo "Downloaded alioth.xml manifest file."
-echo "You can now run 'repo sync' to fetch the additional repositories."
+
+# Apply the Binder patch
+echo "Applying Binder threadpool patch..."
+PATCH_FILE="$(dirname "$0")/0001-Don-t-crash-Binder-threadpool-cannot-be-shrunk-after.patch"
+
+if [ ! -f "$PATCH_FILE" ]; then
+    echo "Warning: Patch file not found at $PATCH_FILE"
+    echo "Skipping patch application."
+elif [ ! -d "system/libhwbinder" ]; then
+    echo "Warning: system/libhwbinder directory not found."
+    echo "The patch will need to be applied manually after syncing the source."
+    echo "Patch location: $PATCH_FILE"
+else
+    cd system/libhwbinder
+    if patch -p1 --dry-run --silent < "$PATCH_FILE" 2>/dev/null; then
+        patch -p1 < "$PATCH_FILE"
+        echo "Successfully applied Binder threadpool patch!"
+    else
+        echo "Warning: Patch may already be applied or cannot be applied cleanly."
+        echo "You may need to apply it manually: $PATCH_FILE"
+    fi
+    cd - > /dev/null
+fi
+
+echo ""
+echo "Setup complete! You can now run 'repo sync' to fetch the additional repositories."
