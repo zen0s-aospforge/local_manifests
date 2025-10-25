@@ -49,29 +49,4 @@ chmod 644 ".repo/local_manifests/alioth.xml"
 
 echo "Successfully set up local_manifests in .repo directory!"
 echo "Downloaded alioth.xml manifest file."
-
-# Apply the Binder patch
-echo "Applying Binder threadpool patch..."
-
-if [ ! -d "system/libhwbinder" ]; then
-    echo "Warning: system/libhwbinder directory not found."
-    echo "The patch will need to be applied manually after syncing the source."
-else
-    cd system/libhwbinder
-    echo "Fetching commit from custom-crdroid repository..."
-    if git fetch https://github.com/custom-crdroid/system_libhwbinder.git d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
-        echo "Applying commit d9d46e78cec0d09498fd5890eed9f7195baed0fd..."
-        if git cherry-pick d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
-            echo "Successfully applied Binder threadpool patch!"
-        else
-            echo "Warning: Failed to cherry-pick commit. It may already be applied or conflict with existing changes."
-            git cherry-pick --abort 2>/dev/null
-        fi
-    else
-        echo "Warning: Failed to fetch commit from repository."
-    fi
-    cd - > /dev/null
-fi
-
-echo ""
-echo "Setup complete! You can now run 'repo sync' to fetch the additional repositories."
+echo "You can now run 'repo sync' to fetch the additional repositories."

@@ -2,10 +2,28 @@
 
 ## Setup
 
-Run this command in your Android source root directory:
+### Step 1: Setup Local Manifests
+Run this command in your Android source root directory to download and setup the local manifests:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_local_manifests.sh)
 ```
 
-Then run `repo sync` to fetch the repositories.
+### Step 2: Sync Repositories
+Then run `repo sync` to fetch the additional repositories:
+
+```bash
+repo sync
+```
+
+### Step 3: Apply Binder Patch (Optional)
+After syncing, apply the Binder threadpool patch:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/apply_binder_patch.sh)
+```
+
+## Scripts
+
+- `setup_local_manifests.sh`: Downloads and sets up the local manifests XML file
+- `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
