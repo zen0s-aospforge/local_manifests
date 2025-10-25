@@ -2,21 +2,28 @@
 
 ## Setup
 
-### Step 1: Setup Local Manifests
+### Step 1: Configure Git (Required)
+First, configure your Git settings and Android repository authentication:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
+```
+
+### Step 2: Setup Local Manifests
 Run this command in your Android source root directory to download and setup the local manifests:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_local_manifests.sh)
 ```
 
-### Step 2: Sync Repositories
+### Step 3: Sync Repositories
 Then run `repo sync` to fetch the additional repositories:
 
 ```bash
 repo sync
 ```
 
-### Step 3: Apply Binder Patch (Optional)
+### Step 4: Apply Binder Patch (Optional)
 After syncing, apply the Binder threadpool patch:
 
 ```bash
@@ -25,5 +32,6 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 
 ## Scripts
 
+- `setup_git_config.sh`: Configures Git username/email and Android repository authentication cookies
 - `setup_local_manifests.sh`: Downloads and sets up the local manifests XML file
 - `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
