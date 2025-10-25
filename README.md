@@ -20,7 +20,7 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 Then run `repo sync` to fetch the additional repositories:
 
 ```bash
-repo sync
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 ```
 
 ### Step 4: Apply Binder Patch (Optional)
