@@ -15,16 +15,10 @@
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
   <project name="zen0s-aospforge/hardware_dolby" path="hardware/dolby" remote="github" revision="c2" />
 
-  <!-- WFD (WiFi Display) -->
-  <project name="PocoF3Releases/vendor_qcom_wfd" path="vendor/qcom/wfd" remote="github" revision="bka" clone-depth="1" />
-  <project name="PocoF3Releases/device_qcom_wfd" path="device/qcom/wfd" remote="github" revision="bka" />
-
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
-  <project name="zen0s-aospforge/device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="ax" />
+  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="edit" />
 
-  <!-- SM8250 common -->
-  <project name="zen0s-aospforge/device_xiaomi_sm8250-common" path="device/xiaomi/sm8250-common" remote="github" revision="kang" />
   <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
 
 </manifest>
