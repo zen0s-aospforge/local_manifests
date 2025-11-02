@@ -3,9 +3,6 @@
 # Step 1: Setup Git Config and answer 'y'
 echo 'y' | bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
 
-# Step 2: Install GitHub CLI and login
-bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
-
 # Step 3: Initialize repo
 repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 16 -g default,-mips,-darwin,-notdefault
 

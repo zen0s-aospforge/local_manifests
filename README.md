@@ -9,6 +9,9 @@ First, configure your Git settings and Android repository authentication:
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
 ```
 
+```
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
+```
 ### Step 2: Setup Local Manifests
 Run this command in your Android source root directory to download and setup the local manifests:
 
