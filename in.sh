@@ -18,11 +18,14 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # Step 6: Apply binder patch
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/apply_binder_patch.sh)
 
-# Step 7: Source envsetup.sh
+# Step 7: Clone infinity priv keys
+git clone https://github.com/ProjectInfinity-X/vendor_infinity-priv_keys vendor/infinity-priv/keys
+
+# Step 8: Source envsetup.sh
 . build/envsetup.sh
 
-# Step 8: Lunch command
+# Step 9: Lunch command
 lunch infinity_alioth-user
 
-# Step 9: Build command
+# Step 10: Build command
 m bacon
