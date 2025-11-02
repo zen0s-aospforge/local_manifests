@@ -37,4 +37,22 @@ else
 fi
 
 cd - > /dev/null
+
+cd bionic
+echo "Fetching commit from yaap/bionic repository..."
+if git fetch https://github.com/yaap/bionic.git 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
+    echo "Applying commit 2c0a9fb575df103aef7cb257ff6f2699898a3f9c..."
+    if git cherry-pick 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
+        echo "Successfully applied bionic patch!"
+    else
+        echo "Warning: Failed to cherry-pick commit. It may already be applied or conflict with existing changes."
+        git cherry-pick --abort 2>/dev/null
+        exit 1
+    fi
+else
+    echo "Warning: Failed to fetch commit from repository."
+    exit 1
+fi
+
+cd - > /dev/null
 echo "Binder patch application complete!"
