@@ -38,8 +38,14 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 ### Step 5: Run Automated Setup and Build (Optional)
 Alternatively, run the automated script to handle the full process:
 
+For AxionAOSP:
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/neko.sh)
+```
+
+For ProjectInfinity-X:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/in.sh)
 ```
 
 ## Scripts
@@ -49,3 +55,4 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 - `rom.sh`: Downloads and sets up the local manifests XML file from roomservice
 - `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
 - `neko.sh`: Automates the full setup and build process for AxionAOSP
+- `in.sh`: Automates the full setup and build process for ProjectInfinity-X
