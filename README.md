@@ -15,6 +15,11 @@ Run this command in your Android source root directory to download and setup the
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_local_manifests.sh)
 ```
+for infinity
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/rom.sh)
+```
 
 ### Step 3: Sync Repositories
 Then run `repo sync` to fetch the additional repositories:
@@ -41,5 +46,6 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 
 - `setup_git_config.sh`: Configures Git username/email and Android repository authentication cookies
 - `setup_local_manifests.sh`: Downloads and sets up the local manifests XML file
+- `rom.sh`: Downloads and sets up the local manifests XML file from roomservice
 - `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
 - `neko.sh`: Automates the full setup and build process for AxionAOSP
