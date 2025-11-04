@@ -51,6 +51,13 @@ For ProjectInfinity-X:
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/in.sh)
 ```
 
+### Step 6: Upload Builds (Optional)
+To upload ProjectInfinity-X builds to SourceForge:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/up.sh)
+```
+
 ## Scripts
 
 - `setup_git_config.sh`: Configures Git username/email and Android repository authentication cookies
@@ -59,3 +66,5 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 - `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
 - `neko.sh`: Automates the full setup and build process for AxionAOSP
 - `in.sh`: Automates the full setup and build process for ProjectInfinity-X
+- `up.sh`: Uploads ProjectInfinity-X builds to SourceForge
+- `gh.sh`: Installs GitHub CLI and handles authentication
