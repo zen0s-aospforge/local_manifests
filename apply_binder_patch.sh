@@ -20,39 +20,41 @@ if [ ! -d "system/libhwbinder" ]; then
     exit 1
 fi
 
+# Patch 1: system/libhwbinder
 cd system/libhwbinder
 echo "Fetching commit from custom-crdroid repository..."
 if git fetch https://github.com/custom-crdroid/system_libhwbinder.git d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
     echo "Applying commit d9d46e78cec0d09498fd5890eed9f7195baed0fd..."
     if git cherry-pick d9d46e78cec0d09498fd5890eed9f7195baed0fd 2>/dev/null; then
-        echo "Successfully applied Binder threadpool patch!"
+        echo "✅ Successfully applied Binder threadpool patch!"
     else
-        echo "Warning: Failed to cherry-pick commit. It may already be applied or conflict with existing changes."
-        git cherry-pick --abort 2>/dev/null
-        exit 1
+        echo "⚠️ Warning: Failed to cherry-pick libhwbinder commit. It may already be applied or have conflicts."
+        echo "   Aborting this patch and continuing..."
+        git cherry-pick --abort 2>/dev/null || true
     fi
 else
-    echo "Warning: Failed to fetch commit from repository."
-    exit 1
+    echo "⚠️ Warning: Failed to fetch libhwbinder commit from repository. Skipping this patch."
 fi
-
 cd - > /dev/null
 
-cd bionic
-echo "Fetching commit from yaap/bionic repository..."
-if git fetch https://github.com/yaap/bionic.git 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
-    echo "Applying commit 2c0a9fb575df103aef7cb257ff6f2699898a3f9c..."
-    if git cherry-pick 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
-        echo "Successfully applied bionic patch!"
+# Patch 2: bionic
+if [ -d "bionic" ]; then
+    cd bionic
+    echo "Fetching commit from yaap/bionic repository..."
+    if git fetch https://github.com/yaap/bionic.git 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
+        echo "Applying commit 2c0a9fb575df103aef7cb257ff6f2699898a3f9c..."
+        if git cherry-pick 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
+            echo "✅ Successfully applied bionic patch!"
+        else
+            echo "⚠️ Warning: Failed to cherry-pick bionic commit. It may already be applied or have conflicts."
+            echo "   Aborting this patch and continuing..."
+            git cherry-pick --abort 2>/dev/null || true
+        fi
     else
-        echo "Warning: Failed to cherry-pick commit. It may already be applied or conflict with existing changes."
-        git cherry-pick --abort 2>/dev/null
-        exit 1
+        echo "⚠️ Warning: Failed to fetch bionic commit from repository. Skipping this patch."
     fi
+    cd - > /dev/null
 else
-    echo "Warning: Failed to fetch commit from repository."
-    exit 1
+    echo "⚠️ Warning: bionic directory not found. Skipping bionic patch."
 fi
-
-cd - > /dev/null
 echo "Binder patch application complete!"
