@@ -7,21 +7,22 @@
   <!-- Camera repos -->
   <project name="johnmart19/vendor_xiaomi_camera" path="vendor/xiaomi/camera" remote="gitlab" revision="aosp-16" clone-depth="1" />
   <project name="PocoF3Releases/device_xiaomi_camera" path="device/xiaomi/camera" remote="github" revision="aosp-16" />
-
+\
   <!-- Kernel -->
   <project name="zen0s-aospforge/xiaomi_sm8250_kernel" path="kernel/xiaomi/sm8250" remote="github" revision="main" clone-depth="1" />
 
+
+  <!-- WFD (WiFi Display) -->
+  <project name="PocoF3Releases/vendor_qcom_wfd" path="vendor/qcom/wfd" remote="github" revision="bka" />
+  <project name="PocoF3Releases/device_qcom_wfd" path="device/qcom/wfd" remote="github" revision="bka" />
+
   <!-- Hardware -->
-  <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
-  <project name="zen0s-aospforge/hardware_dolby" path="hardware/dolby" remote="github" revision="c2" />
+  <project name="PocoF3Releases/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="aosp-16" />
 
   <!-- Alioth device and vendor -->
-  <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
-  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="ax" />
-
-  <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
-
-  <!-- GameBar -->
-  <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
+  <project name="PocoF3Releases/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="aosp-16" clone-depth="1" />
+  <project name="PocoF3Releases/device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="aosp-16" />
+  <project name="PocoF3Releases/device_xiaomi_sm8250-common" path="device/xiaomi/sm8250-common" remote="github" revision="aosp-16" />
+  <project name="PocoF3Releases/vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="aosp-16" clone-depth="1" />
 
 </manifest>
