@@ -21,6 +21,9 @@
 
   <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
 
+  <!-- ReVanced -->
+  <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
+
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
 
