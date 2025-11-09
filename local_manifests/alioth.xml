@@ -17,7 +17,7 @@
 
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
-  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="qs" />
+  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="ax" />
 
   <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
 
