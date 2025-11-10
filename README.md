@@ -9,7 +9,7 @@ First, configure your Git settings and Android repository authentication:
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
 ```
 
-```
+```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
 ```
 ### Step 2: Setup Local Manifests
@@ -55,22 +55,12 @@ For Euclid:
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/euclid.sh)
 ```
-
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/lunarish.sh)
+```
 ### Step 6: Upload Builds (Optional)
 To upload ProjectInfinity-X builds to SourceForge:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/up.sh)
 ```
-
-## Scripts
-
-- `setup_git_config.sh`: Configures Git username/email and Android repository authentication cookies
-- `setup_local_manifests.sh`: Downloads and sets up the local manifests XML file
-- `rom.sh`: Downloads and sets up the local manifests XML file from roomservice
-- `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
-- `neko.sh`: Automates the full setup and build process for AxionAOSP
-- `in.sh`: Automates the full setup and build process for ProjectInfinity-X
-- `euclid.sh`: Automates the full setup and build process for Euclid
-- `up.sh`: Uploads ProjectInfinity-X builds to SourceForge
-- `gh.sh`: Installs GitHub CLI and handles authentication
