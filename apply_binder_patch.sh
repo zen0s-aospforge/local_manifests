@@ -57,4 +57,26 @@ if [ -d "bionic" ]; then
 else
     echo "⚠️ Warning: bionic directory not found. Skipping bionic patch."
 fi
+
+# Patch 3: frameworks/base
+if [ -d "frameworks/base" ]; then
+    cd frameworks/base
+    echo "Fetching commit from zen0s-aospforge/android_frameworks_base repository..."
+    if git fetch https://github.com/zen0s-aospforge/android_frameworks_base.git c70016cd9a70ece3af454dfcbb083109854305f7 2>/dev/null; then
+        echo "Applying commit c70016cd9a70ece3af454dfcbb083109854305f7..."
+        if git cherry-pick c70016cd9a70ece3af454dfcbb083109854305f7 2>/dev/null; then
+            echo "✅ Successfully applied frameworks/base patch!"
+        else
+            echo "⚠️ Warning: Failed to cherry-pick frameworks/base commit. It may already be applied or have conflicts."
+            echo "   Aborting this patch and continuing..."
+            git cherry-pick --abort 2>/dev/null || true
+        fi
+    else
+        echo "⚠️ Warning: Failed to fetch frameworks/base commit from repository. Skipping this patch."
+    fi
+    cd - > /dev/null
+else
+    echo "⚠️ Warning: frameworks/base directory not found. Skipping frameworks/base patch."
+fi
+
 echo "Binder patch application complete!"
