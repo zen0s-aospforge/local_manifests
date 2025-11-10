@@ -51,6 +51,11 @@ For ProjectInfinity-X:
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/in.sh)
 ```
 
+For Euclid:
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/euclid.sh)
+```
+
 ### Step 6: Upload Builds (Optional)
 To upload ProjectInfinity-X builds to SourceForge:
 
@@ -66,5 +71,6 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 - `apply_binder_patch.sh`: Applies the Binder threadpool patch via git cherry-pick
 - `neko.sh`: Automates the full setup and build process for AxionAOSP
 - `in.sh`: Automates the full setup and build process for ProjectInfinity-X
+- `euclid.sh`: Automates the full setup and build process for Euclid
 - `up.sh`: Uploads ProjectInfinity-X builds to SourceForge
 - `gh.sh`: Installs GitHub CLI and handles authentication
