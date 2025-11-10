@@ -3,7 +3,13 @@
 # Setup Git config
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
 
-bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
+# Setup GitHub CLI only if not already installed
+if ! command -v gh &> /dev/null; then
+    echo "GitHub CLI not found, installing..."
+    bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
+else
+    echo "GitHub CLI already installed, skipping..."
+fi
 
 # Initialize repo
 repo init -u https://github.com/Lunaris-AOSP/android -b 16 --git-lfs
@@ -56,6 +62,14 @@ lunch lineage_alioth-bp2a-user
 
 m lunaris
 
-git clone https://github.com/zen0s-aospforge/gdrive_upload.git
-
-python gdrive_upload/setup.py
+# Upload to Google Drive only if build was successful
+if [ $? -eq 0 ]; then
+    echo "Build successful! Setting up Google Drive upload..."
+    if [ ! -d "gdrive_upload" ]; then
+        git clone https://github.com/zen0s-aospforge/gdrive_upload.git
+    fi
+    python gdrive_upload/setup.py
+else
+    echo "Build failed! Skipping Google Drive upload."
+    exit 1
+fi
