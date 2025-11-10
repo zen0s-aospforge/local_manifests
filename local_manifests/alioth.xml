@@ -27,4 +27,7 @@
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
 
+  <!-- Frameworks -->
+  <project name="zen0s-aospforge/android_frameworks_base" path="frameworks/base" remote="github" revision="lineage-23.0" />
+
 </manifest>
