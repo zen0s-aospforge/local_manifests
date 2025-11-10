@@ -35,6 +35,7 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
+  <project name="zen0s-aospforge/hardware_dolby" path="hardware/dolby" remote="github" revision="c2" />
 
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
