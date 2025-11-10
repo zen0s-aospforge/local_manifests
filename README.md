@@ -58,6 +58,9 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/lunarish.sh)
 ```
+```bash
+bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/axion.sh)
+```
 ### Step 6: Upload Builds (Optional)
 To upload ProjectInfinity-X builds to SourceForge:
 
