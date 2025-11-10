@@ -13,7 +13,7 @@
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
-  <project name="zen0s-aospforge/hardware_dolby" path="hardware/dolby" remote="github" revision="c2" />
+  <!-- <project name="zen0s-aospforge/hardware_dolby" path="hardware/dolby" remote="github" revision="c2" /> -->
 
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
@@ -26,9 +26,5 @@
 
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
-
-  <!-- Frameworks -->
-  <remove-project path="frameworks/base" />
-  <project name="zen0s-aospforge/android_frameworks_base" path="frameworks/base" remote="github" revision="lineage-23.0" />
 
 </manifest>
