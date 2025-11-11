@@ -61,6 +61,8 @@ bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests
 # Setup build environment
 . build/envsetup.sh
 
+bash vendor/revanced/extract-libs.sh
+
 # Lunch and build
 axion alioth user gms
 
