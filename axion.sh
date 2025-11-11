@@ -46,6 +46,9 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
 
+  <!-- revanced -->
+  <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
+
 </manifest>
 EOF
 
