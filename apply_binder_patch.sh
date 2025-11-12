@@ -61,10 +61,10 @@ fi
 # Patch 3: frameworks/base
 if [ -d "frameworks/base" ]; then
     cd frameworks/base
-    echo "Fetching commit from zen0s-aospforge/android_frameworks_base repository..."
-    if git fetch https://github.com/zen0s-aospforge/android_frameworks_base.git c70016cd9a70ece3af454dfcbb083109854305f7 2>/dev/null; then
-        echo "Applying commit c70016cd9a70ece3af454dfcbb083109854305f7..."
-        if git cherry-pick c70016cd9a70ece3af454dfcbb083109854305f7 2>/dev/null; then
+    echo "Fetching commit from PixelLineage/frameworks_base repository..."
+    if git fetch https://github.com/PixelLineage/frameworks_base.git bc71449a25b6b0d16d2b4e611cdc9939bd89bb54 2>/dev/null; then
+        echo "Applying commit bc71449a25b6b0d16d2b4e611cdc9939bd89bb54..."
+        if git cherry-pick bc71449a25b6b0d16d2b4e611cdc9939bd89bb54 2>/dev/null; then
             echo "✅ Successfully applied frameworks/base patch!"
         else
             echo "⚠️ Warning: Failed to cherry-pick frameworks/base commit. It may already be applied or have conflicts."
