@@ -50,7 +50,7 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
 
   <!-- custom adreno -->
-  <project name="zen0s-aospforge/vendor_custom_andreno" path="vendor/custom/andreno" remote="github" revision="main" />
+  <project name="zen0s-aospforge/vendor_custom_adreno" path="vendor/custom/adreno" remote="github" revision="main" />
 
 </manifest>
 EOF
