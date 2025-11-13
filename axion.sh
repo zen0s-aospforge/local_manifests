@@ -49,9 +49,6 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <!-- revanced -->
   <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
 
-  <!-- custom adreno -->
-  <project name="zen0s-aospforge/vendor_custom_adreno" path="vendor/custom/adreno" remote="github" revision="main" />
-
 </manifest>
 EOF
 
