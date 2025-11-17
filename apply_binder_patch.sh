@@ -37,26 +37,7 @@ else
 fi
 cd - > /dev/null
 
-# Patch 2: bionic
-if [ -d "bionic" ]; then
-    cd bionic
-    echo "Fetching commit from yaap/bionic repository..."
-    if git fetch https://github.com/yaap/bionic.git 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
-        echo "Applying commit 2c0a9fb575df103aef7cb257ff6f2699898a3f9c..."
-        if git cherry-pick 2c0a9fb575df103aef7cb257ff6f2699898a3f9c 2>/dev/null; then
-            echo "✅ Successfully applied bionic patch!"
-        else
-            echo "⚠️ Warning: Failed to cherry-pick bionic commit. It may already be applied or have conflicts."
-            echo "   Aborting this patch and continuing..."
-            git cherry-pick --abort 2>/dev/null || true
-        fi
-    else
-        echo "⚠️ Warning: Failed to fetch bionic commit from repository. Skipping this patch."
-    fi
-    cd - > /dev/null
-else
-    echo "⚠️ Warning: bionic directory not found. Skipping bionic patch."
-fi
+
 
 # Patch 3: frameworks/base
 if [ -d "frameworks/base" ]; then
