@@ -31,7 +31,7 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <project name="PocoF3Releases/device_xiaomi_camera" path="device/xiaomi/camera" remote="github" revision="aosp-16" />
 
   <!-- Kernel -->
-  <project name="zenzer0s/kernel_sm8250" path="kernel/xiaomi/sm8250" remote="github" revision="main" clone-depth="1" />
+  <project name="zenzer0s/kernel_sm8250" path="kernel/xiaomi/sm8250" remote="github" revision="stable" clone-depth="1" />
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
