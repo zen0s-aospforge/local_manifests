@@ -1,16 +1,3 @@
-#!/bin/bash
-
-# Setup Git config
-bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/setup_git_config.sh)
-
-# Setup GitHub CLI only if not already installed
-if ! command -v gh &> /dev/null; then
-    echo "GitHub CLI not found, installing..."
-    bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/gh.sh)
-else
-    echo "GitHub CLI already installed, skipping..."
-fi
-
 # Initialize repo
 repo init -u https://github.com/AxionAOSP/android.git -b lineage-23.0 --git-lfs
 
@@ -31,7 +18,7 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <project name="PocoF3Releases/device_xiaomi_camera" path="device/xiaomi/camera" remote="github" revision="aosp-16" />
 
   <!-- Kernel -->
-  <project name="zenzer0s/kernel_sm8250" path="kernel/xiaomi/sm8250" remote="github" revision="stable" clone-depth="1" />
+  <project name="zenzer0s/kernel_xiaomi_alioth path="kernel/xiaomi/sm8250" remote="github" revision="stable" clone-depth="1" />
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
@@ -39,7 +26,7 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
 
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
-  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="axion" />
+  <project name="zenzer0s/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="axion" />
 
   <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
 
@@ -67,15 +54,3 @@ bash vendor/revanced/extract-libs.sh
 axion alioth user gms
 
 ax -b user
-
-# Upload to Google Drive only if build was successful
-if [ $? -eq 0 ]; then
-    echo "Build successful! Setting up Google Drive upload..."
-    if [ ! -d "gdrive_upload" ]; then
-        git clone https://github.com/zen0s-aospforge/gdrive_upload.git
-    fi
-    python gdrive_upload/setup.py
-else
-    echo "Build failed! Skipping Google Drive upload."
-    exit 1
-fi
