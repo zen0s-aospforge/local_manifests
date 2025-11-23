@@ -9,7 +9,7 @@
   <project name="PocoF3Releases/device_xiaomi_camera" path="device/xiaomi/camera" remote="github" revision="aosp-16" />
 
   <!-- Kernel -->
-  <project name="zen0s-aospforge/xiaomi_sm8250_kernel" path="kernel/xiaomi/sm8250" remote="github" revision="main" clone-depth="1" />
+  <project name="zenzer0s/kernel_xiaomi_alioth path="kernel/xiaomi/sm8250" remote="github" revision="main" clone-depth="1" />
 
   <!-- Hardware -->
   <project name="zen0s-aospforge/hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="16" />
@@ -17,11 +17,14 @@
 
   <!-- Alioth device and vendor -->
   <project name="zen0s-aospforge/vendor_xiaomi_alioth" path="vendor/xiaomi/alioth" remote="github" revision="16" clone-depth="1" />
-  <project name="zen0s-aospforge/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="in" />
+  <project name="Infinity-X-Devices/android_device_xiaomi_alioth" path="device/xiaomi/alioth" remote="github" revision="in16" />
 
   <project name="zen0s-aospforge/proprietary_vendor_xiaomi_sm8250-common" path="vendor/xiaomi/sm8250-common" remote="github" revision="16" clone-depth="1" />
 
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
+
+  <!-- revanced -->
+  <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
 
 </manifest>
