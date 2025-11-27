@@ -33,22 +33,21 @@ cat > .repo/local_manifests/alioth.xml << 'EOF'
   <!-- GameBar -->
   <project name="zen0s-aospforge/packages_apps_GameBar" path="packages/apps/GameBar" remote="github" revision="main" />
 
-  <!-- revanced -->
-  <project name="zen0s-aospforge/vendor_revanced" path="vendor/revanced" remote="github" revision="main" />
-
 </manifest>
 EOF
 
 # Re-sync after adding local manifest
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 
+git clone https://github.com/Pixelify-AOSP/vendor_revanced vendor/revanced
+
+bash vendor/revanced/extract-libs.sh
+
 # Apply binder patch
 bash <(curl -s https://raw.githubusercontent.com/zen0s-aospforge/local_manifests/main/apply_binder_patch.sh)
 
 # Setup build environment
 . build/envsetup.sh
-
-bash vendor/revanced/extract-libs.sh
 
 # Lunch and build
 axion alioth user gms
